@@ -1,5 +1,6 @@
 <template>
   <div class="login-container">
+    <Custom test-props="Hi" />
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
 
       <div class="title-container">
@@ -76,10 +77,14 @@
 <script>
 import { validUsername } from '@/utils/validate'
 import SocialSign from './components/SocialSignin'
+import Custom from '@/components/Custom'
 
 export default {
   name: 'Login',
-  components: { SocialSign },
+  components: {
+    SocialSign,
+    Custom
+  },
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
